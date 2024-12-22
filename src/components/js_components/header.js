@@ -59,7 +59,7 @@ function Header() {
         <div className="modal-content">
           {/* Home link with scroll to top and closing modal */}
           <Link to="/" onClick={navigateHome}>Home</Link>
-          <Link onClick={() => { scrollToSection("about"); setIsMenuOpen(false); }}>About</Link>
+          {/* <Link onClick={() => { scrollToSection("about"); setIsMenuOpen(false); }}>About</Link> */}
         <Link onClick={() => { scrollToSection("features"); setIsMenuOpen(false);}}>Features</Link>
         <Link onClick={() => { scrollToSection("service"); setIsMenuOpen(false);}}>Services</Link>
         <Link onClick={() => { scrollToSection("contact"); setIsMenuOpen(false);}}>Contact Us</Link>
