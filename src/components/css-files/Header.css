@@ -1,0 +1,200 @@
+/* Base Reset */
+* {
+    box-sizing: border-box;
+  }
+  
+  /* Header Styling */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+    height: 80px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border: #000000;
+    position: fixed; /* Fix the header at the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure header stays on top */
+    padding-top: 10px; /* Adjust if needed to add space from the top */
+  }
+  
+  /* Logo Styling */
+  .logo img {
+    height: 90px;
+  }
+  
+  /* Navigation Links */
+  .nav-links {
+    display: flex;
+    gap: 20px;
+    font-weight: bold;
+  }
+  .nav-links a {
+    text-decoration: none;
+    color: #e67e22; /* Initial orange text color */
+    position: relative;
+    transition: color 0.3s ease, font-weight 0.3s ease, transform 0.3s ease; /* Smooth transition for effects */
+    display: inline-block; /* Ensures pseudo-elements align properly */
+  }
+  
+  .nav-links a:hover {
+    font-weight: bold;
+    color: #3498db; /* Contrasting blue color on hover */
+    transform: scale(1.1); /* Slightly enlarge the link */
+  }
+  
+  .nav-links a::after {
+    content: ''; /* Empty content for underline */
+    position: absolute;
+    bottom: -2px; /* Position below the text */
+    left: 0;
+    width: 100%;
+    height: 2px; /* Thickness of the underline */
+    background: linear-gradient(90deg, #3498db, #2980b9); /* Blue gradient underline */
+    transform: scaleX(0); /* Start hidden (no width) */
+    transform-origin: left; /* Animation starts from the left */
+    transition: transform 0.3s ease; /* Smooth animation */
+  }
+  
+  .nav-links a:hover::after {
+    transform: scaleX(1); /* Full width underline on hover */
+  }
+  
+  .nav-links a::before {
+    content: ''; /* Circle effect on hover */
+    position: absolute;
+    top: 50%; /* Vertical center */
+    left: -10px; /* Slightly left of the text */
+    width: 6px;
+    height: 6px;
+    border-radius: 50%; /* Circular shape */
+    opacity: 0;
+    transform: scale(0.5);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  .nav-links a:hover::before {
+    opacity: 1; /* Make the circle appear */
+    transform: scale(1); /* Grow to full size */
+  }
+  
+  
+  /* Contact Button Styling */
+  .contact-button {
+    background: #ff5722; /* Gradient background */
+    color: #fff; /* Text color to stand out against the gradient */
+    padding: 10px 20px;
+    border: none; /* Remove border */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    transition: background 0.3s ease; /* Optional transition effect */
+  }
+  
+  /* Menu Icon Styling */
+  .menu-icon {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  
+  .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 4px 0;
+    transition: 0.4s;
+  }
+  
+  .bar.open {
+    background-color: #663399; /* Change color when open */
+  }
+  
+  /* Responsive Styling for Mobile */
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none; /* Hide navigation links on mobile */
+    }
+  
+    .menu-icon {
+      display: flex; /* Show menu icon on mobile */
+    }
+  
+    .contact-button {
+      display: none; /* Hide contact button on mobile */
+    }
+  }
+  
+  /* Slide-In Modal */
+  .side-modal {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Initially hidden */
+    background-color: #373636d4; /* Modal background color */
+    color: whitesmoke;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: right 0.4s ease; /* Slide effect */
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+    padding: 20px;
+    z-index: 999; /* Ensure modal is above other content */
+    border-radius: 5px;
+  }
+  
+  .side-modal.visible {
+    right: 0; /* Show the modal when the class is "visible" */
+  }
+  
+  /* Close Icon */
+  .close-icon {
+    align-self: flex-end;
+    font-size: 24px;
+    cursor: pointer;
+    color: whitesmoke;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+  }
+  
+  .close-icon:hover {
+    transform: rotate(90deg); /* Rotate the close icon on hover */
+  }
+  
+  /* Modal Links with Fade-In Animation */
+  .modal-content a {
+    text-decoration: underline;
+    color: whitesmoke;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+    opacity: 0;
+    transform: translateX(20px);
+    animation: fadeSlideIn 0.3s forwards; /* Slide and fade effect */
+  }
+  
+  .modal-content a:hover {
+    color: #0cbbe2; /* Change color on hover */
+  }
+  
+  /* Keyframes for Fade and Slide-In */
+  @keyframes fadeSlideIn {
+    from {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  /* Body Adjustment for Fixed Header */
+  body {
+    margin-top: 80px; /* Add space to avoid overlap with the fixed header */
+  }
+  

@@ -1,0 +1,151 @@
+.about-main-container {
+  padding: 50px 20px;
+  background-color: #f9f9f9;
+}
+
+.about-title {
+  text-align: left;
+  font-size: 2.5rem;
+  font-weight: 500;
+  padding: 5px;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.about-us-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.about-us {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap; /* Ensures elements stack on smaller screens */
+}
+
+.about-us-left {
+  flex: 1;
+  min-width: 280px; /* Ensure the image section doesn't shrink too much */
+}
+
+.about-image {
+  width: 100%; /* Stretches across container width */
+  height: auto; /* Maintain aspect ratio */
+  max-height: 500px; /* Optional: limit height */
+  object-fit: cover;
+  border-radius: 10px; /* Rounded corners */
+}
+
+.about-us-right {
+  flex: 1;
+  text-align: left;
+  margin-top: -50px;
+  min-width: 280px; /* Ensure content doesn't shrink too much */
+}
+
+.about-us-right h2 {
+  font-size: 2.6rem;
+  margin-bottom: 15px;
+  margin-top: 0px;
+  color: #444;
+}
+
+.about-us-right p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  line-height: 1.6;
+  font-weight: 500;
+  color: #444;
+}
+
+.features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+
+.features-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #444;
+  padding: 8px;
+}
+
+.icon-check {
+  color: #ff5722;
+  margin-right: 10px;
+}
+
+.book-tour {
+  background-color: #ff5722;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.book-tour:hover {
+  background-color: #e64a19;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1024px) {
+  .about-us {
+    flex-direction: column; /* Stack on medium screens */
+  }
+
+  .about-us-right {
+    margin-top: 20px; /* Add spacing between stacked items */
+  }
+}
+
+@media (max-width: 768px) {
+  .about-title {
+    font-size: 2rem;
+    text-align: center; /* Center-align text on smaller screens */
+  }
+
+  .about-us-right h2 {
+    font-size: 1.5rem;
+  }
+
+  .about-us-right p,
+  .features-list li {
+    font-size: 0.9rem;
+  }
+
+  .book-tour {
+    font-size: 0.9rem;
+    padding: 8px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-title {
+    font-size: 1.8rem;
+  }
+
+  .about-image {
+    height: auto;
+    max-height: 300px; /* Limit height for smaller screens */
+  }
+
+  .features-list li {
+    font-size: 0.8rem;
+  }
+
+  .book-tour {
+    font-size: 0.8rem;
+    padding: 7px 12px;
+  }
+}
