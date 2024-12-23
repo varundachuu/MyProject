@@ -46,10 +46,10 @@ const AboutUs = () => {
                 <FontAwesomeIcon className="icon-check" icon={faCheck} />{" "}
                 Tailored Services
               </li>
-              <li>
+              {/* <li>
                 <FontAwesomeIcon className="icon-check" icon={faCheck} /> Fully
                 Dedicated Expertise
-              </li>
+              </li> */}
               <li>
                 <FontAwesomeIcon className="icon-check" icon={faCheck} /> Office
                 Focus On Creativity
