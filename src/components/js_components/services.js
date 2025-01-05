@@ -11,7 +11,7 @@ const Services = () => {
       icon: "🌐",
     },
     {
-      title: "Software Products & Custumization",
+      title: "Software Products & Customization",
       description: "Customized SaaS platforms to streamline your operations.",
       icon: "☁️",
     },
