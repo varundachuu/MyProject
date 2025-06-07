@@ -14,9 +14,9 @@ const Services = () => {
 
   return (
     <section ref={service} id="service" className="services-section">
-      <h2 className="services-heading">Our Other Services</h2>
+      <h2 className="services-heading">Our Other Programmes</h2>
       <p className="services-subheading">
-        Our other range of services.
+        Our other range of programmes.
       </p>
       <div className="services-grid">
         {services.map((service, index) => (
