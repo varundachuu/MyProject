@@ -9,6 +9,7 @@ import AboutUs from "./components/js_components/About.js";
 import ContactUs from "./components/js_components/contactUs.js";
 import heroBackground from "../src/Hero-Background_image/background.jpg";
 import Services from "./components/js_components/services.js";
+import OtherServices from "./components/js_components/OtherServices.js";
 import WhyChooseUs from "./components/js_components/whyChooseUs.js";
 
 function App() {
@@ -78,6 +79,7 @@ function App() {
                   </div>
                   <Features />
                   <Services />
+                  <OtherServices />
                   <Founders />
                   <ContactUs />
                 </>
