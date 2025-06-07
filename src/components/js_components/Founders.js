@@ -12,7 +12,7 @@ const Founder = () => {
     manager:{ image: "./images/Profile-Images/Ramya.jpg", name: 'Ramya', title: 'Chief Technology Officer' },
     employees: [
       { image: "./images/Profile-Images/Kishore.jpg",name: 'Kishore', title: 'Management Information System - Manager' },
-      { image: "./images/Profile-Images/kiran.jpg", name: 'Kiran', title: 'Senior Developer - Manager' },
+      { image: "./images/Profile-Images/Soumik Mandal.jpeg", name: 'Soumik Mandal', title: 'Senior Developer' },
       { image: "./images/Profile-Images/madhu.jpg", name: 'Madhu Sudhan', title: 'QA Manager' },
       { image: "./images/Profile-Images/prasad1.jpg", name: 'Prasad', title: 'Digital Marketing Executive' },
       { image: "./images/Profile-Images/kavya.jpg", name: 'Kavya', title: 'Accountant Manager' },
