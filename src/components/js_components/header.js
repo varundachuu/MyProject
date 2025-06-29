@@ -42,7 +42,8 @@ function Header() {
         <Link onClick={() => { scrollToSection("features"); setIsMenuOpen(false);}}>Features</Link>
         <Link onClick={() => { scrollToSection("service"); setIsMenuOpen(false);}}>Services</Link>
         <Link onClick={() => { scrollToSection("contact"); setIsMenuOpen(false);}}>Contact Us</Link>
-      </nav>
+        <Link onClick={() => { scrollToSection("Programmes"); setIsMenuOpen(false);}}>Programmes</Link>      
+    </nav>
 
       {/* Menu Icon */}
       <div className="menu-icon" onClick={toggleMenu}>
