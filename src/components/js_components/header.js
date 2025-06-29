@@ -31,7 +31,7 @@ function Header() {
     <header className="header">
       {/* Logo Section */}
       <div className="logo">
-        <img src="./images/logo2.png" alt="logo" />
+        <img src="./images/log4.jpg" alt="logo" />
       </div>
 
       {/* Navigation Links */}
