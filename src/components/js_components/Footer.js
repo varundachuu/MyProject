@@ -12,6 +12,8 @@ const Footer = () => {
           <h3>OneQuickSolutions</h3>
           <p>Unlock the Future of Business with Our Platform.</p>
         </div>
+    </div>
+<p>Unlock the Future of Business with Our Platform.</p>
         <div className="footer-links">
           <h4>Quick Links</h4>
           <ul>
