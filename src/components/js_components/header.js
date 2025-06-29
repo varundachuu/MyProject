@@ -41,7 +41,7 @@ function Header() {
         <Link onClick={() => { scrollToSection("about"); setIsMenuOpen(false); }}>About</Link>
         <Link onClick={() => { scrollToSection("features"); setIsMenuOpen(false);}}>Features</Link>
         <Link onClick={() => { scrollToSection("service"); setIsMenuOpen(false);}}>Services</Link>
-        <Link onClick={() => { scrollToSection("Programmes"); setIsMenuOpen(false);}}>Programmes</Link>   
+        <Link onClick={() => { scrollToSection("OtherServices"); setIsMenuOpen(false);}}>Programmes</Link>   
         <Link onClick={() => { scrollToSection("contact"); setIsMenuOpen(false);}}>Contact Us</Link>
           </nav>
 
@@ -63,7 +63,7 @@ function Header() {
           <Link onClick={() => { scrollToSection("about"); setIsMenuOpen(false); }}>About</Link>
         <Link onClick={() => { scrollToSection("features"); setIsMenuOpen(false);}}>Features</Link>
         <Link onClick={() => { scrollToSection("service"); setIsMenuOpen(false);}}>Services</Link>
-        <Link onClick={() => { scrollToSection("Programmes"); setIsMenuOpen(false);}}>Programmes</Link>   
+        <Link onClick={() => { scrollToSection("OtherServices"); setIsMenuOpen(false);}}>Programmes</Link>   
         <Link onClick={() => { scrollToSection("contact"); setIsMenuOpen(false);}}>Contact Us</Link>
            </div>
       </div>
