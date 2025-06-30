@@ -13,7 +13,7 @@ const Services = () => {
   ];
 
   return (
-    <section ref={service} id="service" className="services-section">
+    <section ref={OtherServices} id="OtherServices" className="services-section">
       <h2 className="services-heading">Our Other Programmes</h2>
       <p className="services-subheading">
         Our other range of programmes.
