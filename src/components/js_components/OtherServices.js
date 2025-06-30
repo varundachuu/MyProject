@@ -2,7 +2,7 @@ import React, {useRef}from "react";
 import "../css-files/services.css";
 
 const Services = () => {
-  const service = useRef(null);
+  const otherServicesRef = useRef(null);
 
   const services = [
     {
@@ -13,7 +13,7 @@ const Services = () => {
   ];
 
   return (
-    <section ref={OtherServices} id="OtherServices" className="services-section">
+    <section ref={otherServicesRef} id="OtherServices" className="services-section">
       <h2 className="services-heading">Our Other Programmes</h2>
       <p className="services-subheading">
         Our other range of programmes.
