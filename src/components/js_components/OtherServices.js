@@ -3,94 +3,96 @@ import "../css-files/services.css";
 
 const Services = () => {
   const otherServicesRef = useRef(null);
-  const [isEnlarged, setIsEnlarged] = useState(false);
-  const [showMoreCards, setShowMoreCards] = useState(false);
-  const [modalContent, setModalContent] = useState(null);
 
-  const services = [
+  const [showMore, setShowMore] = useState(false);
+  const [modalContent, setModalContent] = useState("");
+  const [showModal, setShowModal] = useState(false);
+
+  const mainService = {
+    title: "E-Shikshana",
+    description: "A transformative learning programme.",
+    icon: "📕",
+  };
+
+  const otherServices = [
     {
-      title: "E-Shikshana",
-      description: "A transformative learning programme.",
-      details:
-        "E-Shikshana is an innovative digital education programme designed to deliver quality learning to students in remote areas. It includes interactive lessons, assessments, and mentorship to transform the way students learn.",
-      icon: "📕",
-    },
-    {
-      title: "Skill Up",
-      description: "Upskill with industry-relevant courses.",
-      details:
-        "Skill Up helps professionals and students gain new skills through certified courses, expert mentoring, and practical projects to boost employability.",
-      icon: "🎓",
-    },
-    {
-      title: "Tech Connect",
-      description: "Connecting technology with learning.",
-      details:
-        "Tech Connect bridges the gap between technology and education by providing schools with smart classrooms, training for teachers, and digital resources.",
+      title: "Digital Literacy",
+      description: "Empowering communities with digital skills.",
       icon: "💻",
+      more: "Our Digital Literacy programme helps bridge the digital divide by offering training in basic computer skills, internet usage, and online safety.",
+    },
+    {
+      title: "Skill Development",
+      description: "Building skills for better employability.",
+      icon: "🎓",
+      more: "The Skill Development initiative provides vocational training, soft skills, and industry-relevant certifications to enhance job opportunities.",
     },
   ];
 
   const handleButtonClick = () => {
-    setIsEnlarged(true);
-    setTimeout(() => {
-      setIsEnlarged(false);
-      setShowMoreCards(true);
-    }, 500);
+    setShowMore(true);
   };
 
-  const handleReadMore = (details) => {
-    setModalContent(details);
+  const openModal = (content) => {
+    setModalContent(content);
+    setShowModal(true);
   };
 
   const closeModal = () => {
-    setModalContent(null);
+    setShowModal(false);
   };
 
   return (
-    <section
-      ref={otherServicesRef}
-      id="OtherServices"
-      className="services-section"
-    >
+    <section ref={otherServicesRef} id="OtherServices" className="services-section">
       <h2 className="services-heading">Our Other Programmes</h2>
       <p className="services-subheading">Our other range of programmes.</p>
 
+      {/* Always visible main service */}
       <div className="services-grid">
-        {services
-          .filter((_, index) => index === 0 || showMoreCards)
-          .map((service, index) => (
+        <div className="service-card">
+          <div className="service-icon">{mainService.icon}</div>
+          <h3 className="service-title">{mainService.title}</h3>
+          <p className="service-description">{mainService.description}</p>
+        </div>
+      </div>
+
+      <h3 className="services-know-more-heading">
+        Want to Know More? About our courses
+      </h3>
+
+      {/* Show button only if more services are hidden */}
+      {!showMore && (
+        <button className="know-more-button" onClick={handleButtonClick}>
+          Find here
+        </button>
+      )}
+
+      {/* Display other cards BELOW the heading when revealed */}
+      {showMore && (
+        <div className="services-grid">
+          {otherServices.map((service, index) => (
             <div key={index} className="service-card">
               <div className="service-icon">{service.icon}</div>
               <h3 className="service-title">{service.title}</h3>
               <p className="service-description">{service.description}</p>
               <button
                 className="read-more-button"
-                onClick={() => handleReadMore(service.details)}
+                onClick={() => openModal(service.more)}
               >
                 Read More
               </button>
             </div>
           ))}
-      </div>
-
-      {!showMoreCards && (
-        <>
-          <h3 className="services-know-more-heading">
-            Want to Know More? About our courses
-          </h3>
-          <button
-            className={`know-more-button ${isEnlarged ? "enlarged" : ""}`}
-            onClick={handleButtonClick}
-          >
-            Find Here
-          </button>
-        </>
+        </div>
       )}
 
-      {modalContent && (
+      {/* Modal */}
+      {showModal && (
         <div className="modal-overlay" onClick={closeModal}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+          <div
+            className="modal-content"
+            onClick={(e) => e.stopPropagation()}
+          >
             <span className="modal-close" onClick={closeModal}>
               &times;
             </span>
