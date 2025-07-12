@@ -83,17 +83,18 @@
   transform: scale(1.2);
 }
 
-/* === Read More Link === */
+/* === Read More Link (hyperlink style) === */
 .read-more-link {
-  display: inline;
+  display: inline-block;
   margin-top: 10px;
   font-size: 0.95rem;
   color: #007BFF; /* Blue link */
   text-decoration: underline;
   background: none;
   border: none;
-  cursor: pointer;
+  cursor: pointer; /* pointer, not text cursor */
   padding: 0;
+  font-family: inherit;
 }
 
 .read-more-link:hover {
@@ -136,7 +137,7 @@
   margin: 20px 0;
 }
 
-/* Make the modal close button match the know-more-button */
+/* === Close button same as know-more-button === */
 .close-modal {
   background-color: #ff5722;
   color: #fff;
