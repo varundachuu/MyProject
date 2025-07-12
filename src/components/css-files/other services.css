@@ -136,18 +136,24 @@
   margin: 20px 0;
 }
 
+/* Make the modal close button match the know-more-button */
 .close-modal {
   background-color: #ff5722;
   color: #fff;
   border: none;
-  padding: 10px 20px;
-  font-size: 0.9rem;
+  padding: 12px 30px;
+  font-size: 1rem;
   border-radius: 5px;
   cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .close-modal:hover {
   background-color: #e64a19;
+}
+
+.close-modal.enlarged {
+  transform: scale(1.2);
 }
 
 /* Responsive */
