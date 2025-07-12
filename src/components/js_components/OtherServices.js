@@ -54,20 +54,19 @@ const Services = () => {
         </div>
       </div>
 
+      {/* This heading always shows */}
+      <h3 className="services-know-more-heading">
+        Want to Know More? About our courses
+      </h3>
+
+      {/* This button shows only if not clicked yet */}
       {!showMore && (
-        <>
-          <h3 className="services-know-more-heading">
-            Want to Know More? About our courses
-          </h3>
-          <button
-            className="know-more-button"
-            onClick={handleKnowMoreClick}
-          >
-            Find here
-          </button>
-        </>
+        <button className="know-more-button" onClick={handleKnowMoreClick}>
+          Find here
+        </button>
       )}
 
+      {/* These cards show only when showMore is true */}
       {showMore && (
         <div className="services-grid">
           {services.map((service, index) => (
