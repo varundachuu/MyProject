@@ -83,6 +83,23 @@
   transform: scale(1.2);
 }
 
+/* === Read More link style === */
+.read-more-link {
+  display: inline-block;
+  margin-top: 15px;
+  font-size: 0.95rem;
+  color: #007BFF; /* Bootstrap-like blue */
+  text-decoration: underline;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.read-more-link:hover {
+  color: #0056b3; /* Darker blue on hover */
+}
+
 /* === Modal Styles === */
 
 .modal-overlay {
