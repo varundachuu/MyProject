@@ -76,12 +76,11 @@ const Services = () => {
               <p className="service-description">{service.description}</p>
               {service.showReadMore && (
                 <button
-  className="read-more-link"
-  onClick={() => openModal(service)}
->
-  Read More
-</button>
-                </span>
+                  className="read-more-link"
+                  onClick={() => openModal(service)}
+                >
+                  Read More
+                </button>
               )}
             </div>
           ))}
