@@ -54,19 +54,16 @@ const Services = () => {
         </div>
       </div>
 
-      {/* This heading always shows */}
       <h3 className="services-know-more-heading">
         Want to Know More? About our courses
       </h3>
 
-      {/* This button shows only if not clicked yet */}
       {!showMore && (
         <button className="know-more-button" onClick={handleKnowMoreClick}>
           Find here
         </button>
       )}
 
-      {/* These cards show only when showMore is true */}
       {showMore && (
         <div className="services-grid">
           {services.map((service, index) => (
@@ -93,7 +90,7 @@ const Services = () => {
             <h2>{modalContent.title}</h2>
             <p>{modalContent.description} (Detailed content goes here...)</p>
             <button className="close-modal" onClick={closeModal}>
-              Close
+              Find here
             </button>
           </div>
         </div>
