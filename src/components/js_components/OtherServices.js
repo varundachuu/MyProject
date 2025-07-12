@@ -4,6 +4,7 @@ import "../css-files/services.css";
 const Services = () => {
   const otherServicesRef = useRef(null);
   const [isEnlarged, setIsEnlarged] = useState(false);
+  const [showServices, setShowServices] = useState(false); // NEW STATE
 
   const services = [
     {
@@ -11,15 +12,26 @@ const Services = () => {
       description: "A transformative learning programme.",
       icon: "📕",
     },
+    {
+      title: "SkillUp",
+      description: "Upgrade your skills with practical workshops.",
+      icon: "🎓",
+    },
+    {
+      title: "TechConnect",
+      description: "Connecting tech with your career goals.",
+      icon: "💻",
+    },
   ];
 
   const handleButtonClick = () => {
     setIsEnlarged(true);
+    setShowServices(true); // Show the cards
 
     // Optional: shrink back after a delay
     setTimeout(() => {
       setIsEnlarged(false);
-    }, 1000);
+    }, 300);
   };
 
   return (
@@ -30,15 +42,18 @@ const Services = () => {
     >
       <h2 className="services-heading">Our Other Programmes</h2>
       <p className="services-subheading">Our other range of programmes.</p>
-      <div className="services-grid">
-        {services.map((service, index) => (
-          <div key={index} className="service-card">
-            <div className="service-icon">{service.icon}</div>
-            <h3 className="service-title">{service.title}</h3>
-            <p className="service-description">{service.description}</p>
-          </div>
-        ))}
-      </div>
+
+      {showServices && (
+        <div className="services-grid">
+          {services.map((service, index) => (
+            <div key={index} className="service-card">
+              <div className="service-icon">{service.icon}</div>
+              <h3 className="service-title">{service.title}</h3>
+              <p className="service-description">{service.description}</p>
+            </div>
+          ))}
+        </div>
+      )}
 
       <h3 className="services-know-more-heading">
         Want to Know More? About our courses
