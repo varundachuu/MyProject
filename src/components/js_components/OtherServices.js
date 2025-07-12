@@ -37,12 +37,12 @@ const Services = () => {
         ))}
       </div>
 
-      <h3 className="services-know-more-heading">Want to Know More? about our courses</h3>
+      <h3 className="services-know-more-heading">Want to Know More? About our courses</h3>
       <button
         className={`know-more-button ${isEnlarged ? "enlarged" : ""}`}
         onClick={handleButtonClick}
       >
-        Know More
+        Find here
       </button>
     </section>
   );
