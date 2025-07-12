@@ -3,100 +3,99 @@ import "../css-files/services.css";
 
 const Services = () => {
   const otherServicesRef = useRef(null);
-
   const [showMore, setShowMore] = useState(false);
-  const [modalContent, setModalContent] = useState("");
-  const [showModal, setShowModal] = useState(false);
+  const [modalContent, setModalContent] = useState(null);
 
-  const mainService = {
-    title: "E-Shikshana",
-    description: "A transformative learning programme.",
-    icon: "📕",
-  };
-
-  const otherServices = [
+  const services = [
     {
-      title: "Digital Literacy",
-      description: "Empowering communities with digital skills.",
-      icon: "💻",
-      more: "Our Digital Literacy programme helps bridge the digital divide by offering training in basic computer skills, internet usage, and online safety.",
+      title: "Cloud Integration",
+      description:
+        "Scale effortlessly with secure, cost-effective cloud solutions tailored to your business needs.",
+      icon: "☁️",
+      showReadMore: true,
     },
     {
-      title: "Skill Development",
-      description: "Building skills for better employability.",
-      icon: "🎓",
-      more: "The Skill Development initiative provides vocational training, soft skills, and industry-relevant certifications to enhance job opportunities.",
+      title: "Custom SaaS Development",
+      description:
+        "Transform your business with our SaaS expertise—streamlined, scalable, and user-focused solutions.",
+      icon: "🔧",
+      showReadMore: true,
     },
   ];
 
-  const handleButtonClick = () => {
+  const handleKnowMoreClick = () => {
     setShowMore(true);
   };
 
-  const openModal = (content) => {
-    setModalContent(content);
-    setShowModal(true);
+  const openModal = (service) => {
+    setModalContent(service);
   };
 
   const closeModal = () => {
-    setShowModal(false);
+    setModalContent(null);
   };
 
   return (
-    <section ref={otherServicesRef} id="OtherServices" className="services-section">
+    <section
+      ref={otherServicesRef}
+      id="OtherServices"
+      className="services-section"
+    >
       <h2 className="services-heading">Our Other Programmes</h2>
       <p className="services-subheading">Our other range of programmes.</p>
 
-      {/* Always visible main service */}
       <div className="services-grid">
         <div className="service-card">
-          <div className="service-icon">{mainService.icon}</div>
-          <h3 className="service-title">{mainService.title}</h3>
-          <p className="service-description">{mainService.description}</p>
+          <div className="service-icon">📕</div>
+          <h3 className="service-title">E-Shikshana</h3>
+          <p className="service-description">
+            A transformative learning programme.
+          </p>
         </div>
       </div>
 
-      <h3 className="services-know-more-heading">
-        Want to Know More? About our courses
-      </h3>
-
-      {/* Show button only if more services are hidden */}
       {!showMore && (
-        <button className="know-more-button" onClick={handleButtonClick}>
-          Find here
-        </button>
+        <>
+          <h3 className="services-know-more-heading">
+            Want to Know More? About our courses
+          </h3>
+          <button
+            className="know-more-button"
+            onClick={handleKnowMoreClick}
+          >
+            Find here
+          </button>
+        </>
       )}
 
-      {/* Display other cards BELOW the heading when revealed */}
       {showMore && (
         <div className="services-grid">
-          {otherServices.map((service, index) => (
+          {services.map((service, index) => (
             <div key={index} className="service-card">
               <div className="service-icon">{service.icon}</div>
               <h3 className="service-title">{service.title}</h3>
               <p className="service-description">{service.description}</p>
-              <button
-                className="read-more-button"
-                onClick={() => openModal(service.more)}
-              >
-                Read More
-              </button>
+              {service.showReadMore && (
+                <button
+                  className="read-more-link"
+                  onClick={() => openModal(service)}
+                >
+                  Read More
+                </button>
+              )}
             </div>
           ))}
         </div>
       )}
 
-      {/* Modal */}
-      {showModal && (
-        <div className="modal-overlay" onClick={closeModal}>
-          <div
-            className="modal-content"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <span className="modal-close" onClick={closeModal}>
-              &times;
-            </span>
-            <p>{modalContent}</p>
+      {modalContent && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <h2>{modalContent.title}</h2>
+            <p>{modalContent.description} (Detailed content goes here...)</p>
+            <button className="close-modal" onClick={closeModal}>
+              Close
+            </button>
           </div>
         </div>
       )}
