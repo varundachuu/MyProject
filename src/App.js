@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
+import "./components/css/ScrollToTop.css"; // ✅ import your new scroll-to-top styles
 import Header from "./components/js_components/header.js";
 import Footer from "./components/js_components/Footer.js";
 import Features from "./components/js_components/Features.js";
@@ -26,12 +27,8 @@ function App() {
         heroElement.style.backgroundPosition = `center ${scrollY * 0.5}px`;
       }
 
-      // Show scroll to top button after scrolling 100px
-      if (scrollY > 100) {
-        setShowScrollToTop(true);
-      } else {
-        setShowScrollToTop(false);
-      }
+      // Show scroll-to-top button after scrolling 100px
+      setShowScrollToTop(scrollY > 100);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -107,25 +104,11 @@ function App() {
         </main>
         <Footer />
 
-        {/* Scroll to Top Button */}
+        {/* Scroll-to-top button */}
         {showScrollToTop && (
           <button
             onClick={scrollToTop}
-            style={{
-              position: "fixed",
-              bottom: "40px",
-              right: "40px",
-              zIndex: 99,
-              border: "none",
-              outline: "none",
-              backgroundColor: "#333",
-              color: "white",
-              cursor: "pointer",
-              padding: "15px",
-              borderRadius: "50%",
-              fontSize: "18px",
-              transition: "opacity 0.3s ease",
-            }}
+            className="scroll-to-top-btn"
             title="Go to top"
           >
             &#8679;
