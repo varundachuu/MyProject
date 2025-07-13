@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Header from "./components/js_components/header.js";
@@ -14,7 +14,9 @@ import WhyChooseUs from "./components/js_components/whyChooseUs.js";
 
 function App() {
   const homeRef = useRef(null);
-  const aboutRef = useRef(null); // Reference for AboutUs component
+  const aboutRef = useRef(null);
+
+  const [showScrollToTop, setShowScrollToTop] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,6 +24,13 @@ function App() {
       const heroElement = document.querySelector(".hero");
       if (heroElement) {
         heroElement.style.backgroundPosition = `center ${scrollY * 0.5}px`;
+      }
+
+      // Show scroll to top button after scrolling 100px
+      if (scrollY > 100) {
+        setShowScrollToTop(true);
+      } else {
+        setShowScrollToTop(false);
       }
     };
 
@@ -33,6 +42,13 @@ function App() {
     if (aboutRef.current) {
       aboutRef.current.scrollIntoView({ behavior: "smooth" });
     }
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   };
 
   return (
@@ -90,6 +106,31 @@ function App() {
           </Routes>
         </main>
         <Footer />
+
+        {/* Scroll to Top Button */}
+        {showScrollToTop && (
+          <button
+            onClick={scrollToTop}
+            style={{
+              position: "fixed",
+              bottom: "40px",
+              right: "40px",
+              zIndex: 99,
+              border: "none",
+              outline: "none",
+              backgroundColor: "#333",
+              color: "white",
+              cursor: "pointer",
+              padding: "15px",
+              borderRadius: "50%",
+              fontSize: "18px",
+              transition: "opacity 0.3s ease",
+            }}
+            title="Go to top"
+          >
+            &#8679;
+          </button>
+        )}
       </div>
     </Router>
   );
