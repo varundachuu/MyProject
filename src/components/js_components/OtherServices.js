@@ -173,7 +173,7 @@ Stay informed about how AI is being used in your field
 
 By proactively preparing for AI’s integration into the workplace, we can maximize its benefits while minimizing its risks.</p>
             <button className="close-modal" onClick={closeModal}>
-              Find here
+              Close
             </button>
           </div>
         </div>
