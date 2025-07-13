@@ -4,13 +4,8 @@ import "../css-files/ScrollToTop.css";
 const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
 
-  // Show button when page is scrolled down
   const toggleVisibility = () => {
-    if (window.pageYOffset > 20) {
-      setIsVisible(true);
-    } else {
-      setIsVisible(false);
-    }
+    setIsVisible(window.pageYOffset > 100);
   };
 
   const scrollToTop = () => {
@@ -28,10 +23,14 @@ const ScrollToTop = () => {
   return (
     <button
       onClick={scrollToTop}
-      title="Go to top">&#8679;
+      className={`scroll-to-top ${isVisible ? "show" : ""}`}
+      title="Go to top"
+    >
+      &#8679;
     </button>
   );
 };
 
 export default ScrollToTop;
+
 
