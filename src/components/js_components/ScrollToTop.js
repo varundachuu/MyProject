@@ -28,24 +28,7 @@ const ScrollToTop = () => {
   return (
     <button
       onClick={scrollToTop}
-      style={{
-        position: "fixed",
-        bottom: "40px",
-        right: "40px",
-        zIndex: 99,
-        border: "none",
-        outline: "none",
-        backgroundColor: "#333",
-        color: "white",
-        cursor: "pointer",
-        padding: "15px",
-        borderRadius: "50%",
-        fontSize: "18px",
-        display: isVisible ? "block" : "none",
-      }}
-      title="Go to top"
-    >
-      &#8679;
+      title="Go to top">&#8679;
     </button>
   );
 };
