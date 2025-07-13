@@ -11,6 +11,7 @@ import heroBackground from "../src/Hero-Background_image/background.jpg";
 import Services from "./components/js_components/services.js";
 import OtherServices from "./components/js_components/OtherServices.js";
 import WhyChooseUs from "./components/js_components/whyChooseUs.js";
+import ScrollToTop from "./components/js_components/ScrollToTop.js";
 
 function App() {
   const homeRef = useRef(null);
@@ -101,18 +102,9 @@ function App() {
             <Route path="/contact" element={<ContactUs />} />
           </Routes>
         </main>
+        <ScrollToTop /> 
         <Footer />
 
-        {/* Scroll-to-top button */}
-        {showScrollToTop && (
-          <button
-            onClick={scrollToTop}
-            className="scroll-to-top-btn"
-            title="Go to top"
-          >
-            &#8679;
-          </button>
-        )}
       </div>
     </Router>
   );
