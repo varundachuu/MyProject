@@ -1,1 +1,28 @@
+/* Scroll To Top Button Styles */
+
+.scroll-to-top-btn {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  z-index: 99;
+  background-color: transparent;
+  color: #333;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 50%;
+  font-size: 20px;
+  border: 2px solid #333;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.scroll-to-top-btn:hover {
+  border-color: #555;
+  color: #555;
+  transform: translateY(-3px);
+}
+
+.scroll-to-top-btn:active {
+  transform: scale(0.95);
+}
 
