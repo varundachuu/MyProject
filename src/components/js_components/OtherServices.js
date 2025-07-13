@@ -21,6 +21,20 @@ const Services = () => {
       icon: "🔧",
       showReadMore: true,
     },
+    {
+      title: "Custom SaaS Development",
+      description:
+        "Transform your business with our SaaS expertise—streamlined, scalable, and user-focused solutions.",
+      icon: "🔧",
+      showReadMore: true,
+    },
+    {
+      title: "Custom SaaS Development",
+      description:
+        "Transform your business with our SaaS expertise—streamlined, scalable, and user-focused solutions.",
+      icon: "🔧",
+      showReadMore: true,
+    },
   ];
 
   const handleKnowMoreClick = () => {
@@ -72,12 +86,11 @@ const Services = () => {
               <h3 className="service-title">{service.title}</h3>
               <p className="service-description">{service.description}</p>
               {service.showReadMore && (
-                <button
+                <a
                   className="read-more-link"
-                  onClick={() => openModal(service)}
-                >
+                  onClick={() => openModal(service)}>
                   Read More
-                </button>
+                </a>
               )}
             </div>
           ))}
