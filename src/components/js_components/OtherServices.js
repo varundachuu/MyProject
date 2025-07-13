@@ -28,13 +28,6 @@ const Services = () => {
       icon: "🔧",
       showReadMore: true,
     },
-    {
-      title: "Custom SaaS Development",
-      description:
-        "Transform your business with our SaaS expertise—streamlined, scalable, and user-focused solutions.",
-      icon: "🔧",
-      showReadMore: true,
-    },
   ];
 
   const handleKnowMoreClick = () => {
