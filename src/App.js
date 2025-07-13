@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
-import "./components/css/ScrollToTop.css"; // ✅ import your new scroll-to-top styles
 import Header from "./components/js_components/header.js";
 import Footer from "./components/js_components/Footer.js";
 import Features from "./components/js_components/Features.js";
