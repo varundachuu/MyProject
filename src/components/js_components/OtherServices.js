@@ -8,10 +8,10 @@ const Services = () => {
 
   const services = [
     {
-      title: "Cloud Integration",
+      title: "Foundational Courses",
       description:
-        "Scale effortlessly with secure, cost-effective cloud solutions tailored to your business needs.",
-      icon: "☁️",
+        "For beginners looking to build a strong base in technical and analytical thinking..",
+      icon: "🧱",
       showReadMore: true,
     },
     {
