@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import "../css-files/services.css";
+import "../css-files/other services.css";
 
 const Services = () => {
   const otherServicesRef = useRef(null);
