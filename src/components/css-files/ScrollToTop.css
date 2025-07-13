@@ -6,12 +6,12 @@
   right: 40px;
   z-index: 99;
   background-color: transparent;
-  color: #333;
+  color: #333; /* Arrow color */
   cursor: pointer;
   padding: 15px;
   border-radius: 50%;
   font-size: 20px;
-  border: 2px solid #333;
+  border: 2px solid #333; /* Circle border */
   outline: none;
   transition: all 0.3s ease;
 }
@@ -25,4 +25,3 @@
 .scroll-to-top-btn:active {
   transform: scale(0.95);
 }
-
