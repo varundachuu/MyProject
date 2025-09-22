@@ -90,21 +90,21 @@ const Services = () => {
         </div>
       )}
 
-      {modalContent && (
-        <div className="modal-overlay">
-          <div className="modal-content">
-            <h2>{modalContent.title}</h2>
-            <h3>Test H#</h3>
-       
-By proactively preparing for AI’s integration into the workplace, we can maximize its benefits while minimizing its risks.</p>
-            <button className="close-modal" onClick={closeModal}>
-              Close
-            </button>
-          </div>
-        </div>
-      )}
-    </section>
-  );
-};
+     {modalContent && (
+  <div className="modal-overlay">
+    <div className="modal-content">
+      <h2>{modalContent.title}</h2>
+      <h3>Test H#</h3>
+      <p>
+        By proactively preparing for AI’s integration into the workplace, we can
+        maximize its benefits while minimizing its risks.
+      </p>
+      <button className="close-modal" onClick={closeModal}>
+        Close
+      </button>
+    </div>
+  </div>
+)};
+
 
 export default Services;
