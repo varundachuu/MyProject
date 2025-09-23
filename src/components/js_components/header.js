@@ -1,83 +1,86 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "../css-files/Header.css";
-import { FaTimes } from "react-icons/fa";
+import { FaTimes, FaBars } from "react-icons/fa";
+import logo from "../../images/logo6.jpg"; // ✅ import for React/Webpack
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const navigate = useNavigate(); // Hook to navigate programmatically {{inbuilt function}}
+
+  const navLinks = [
+    { name: "Home", id: "home" },
+    { name: "About", id: "about" },
+    { name: "Features", id: "features" },
+    { name: "Services", id: "service" },
+    { name: "Programmes", id: "OtherServices" },
+    { name: "Products", id: "Products" },
+    { name: "Contact Us", id: "contact" },
+  ];
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  // Scroll function for smooth scrolling
   const scrollToSection = (sectionId) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
+    if (sectionId === "home") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      const section = document.getElementById(sectionId);
+      section?.scrollIntoView({ behavior: "smooth" });
     }
+    setIsMenuOpen(false); // close mobile menu after clicking
   };
 
-  // Handle home navigation with smooth scroll
-  const navigateHome = () => {
-    // Scroll to the top of the page
-    window.scrollTo({ top: 0, behavior: "smooth" });
-    // Close the menu if it's open
-    setIsMenuOpen(false);
-  };
+  // Close menu on Esc key
+  useEffect(() => {
+    const handleEsc = (e) => {
+      if (e.key === "Escape") setIsMenuOpen(false);
+    };
+    window.addEventListener("keydown", handleEsc);
+    return () => window.removeEventListener("keydown", handleEsc);
+  }, []);
 
   return (
     <header className="header">
       {/* Logo Section */}
       <div className="logo">
-        <img src="./images/logo6.jpg" alt="logo" />
+        <img src={logo} alt="logo" />
       </div>
 
-      {/* Navigation Links */}
-      <nav className={`nav-links ${isMenuOpen ? "active" : ""}`}>
-        {/* Home link with scroll to top and closing menu */}
-        <Link to="/" onClick={navigateHome}>Home</Link>
-        <Link onClick={() => { scrollToSection("about"); setIsMenuOpen(false); }}>About</Link>
-        <Link onClick={() => { scrollToSection("features"); setIsMenuOpen(false);}}>Features</Link>
-        <Link onClick={() => { scrollToSection("service"); setIsMenuOpen(false);}}>Services</Link>
-        <Link onClick={() => { scrollToSection("OtherServices"); setIsMenuOpen(false);}}>Programmes</Link>   
-        <Link onClick={() => { scrollToSection("Products"); setIsMenuOpen(false);}}>Products</Link>   
-        <Link onClick={() => { scrollToSection("contact"); setIsMenuOpen(false);}}>Contact Us</Link>
-        
-  </nav>
+      {/* Desktop Navigation */}
+      <nav className={`nav-links ${isMenuOpen ? "active" : ""}`} role="navigation" aria-label="Main Menu">
+        {navLinks.map((link) => (
+          <button
+            key={link.id}
+            className="nav-button"
+            onClick={() => scrollToSection(link.id)}
+          >
+            {link.name}
+          </button>
+        ))}
+      </nav>
 
-      {/* Menu Icon */}
-      <div className="menu-icon" onClick={toggleMenu}>
-        <span className={`bar ${isMenuOpen ? "open" : ""}`}></span>
-        <span className={`bar ${isMenuOpen ? "open" : ""}`}></span>
-        <span className={`bar ${isMenuOpen ? "open" : ""}`}></span>
+      {/* Mobile Menu Icon */}
+      <div className="menu-icon" onClick={toggleMenu} aria-label="Menu" role="button" tabIndex={0}>
+        {isMenuOpen ? <FaTimes /> : <FaBars />}
       </div>
 
-      {/* Slide-In Modal */}
+      {/* Mobile Slide-In Menu */}
       <div className={`side-modal ${isMenuOpen ? "visible" : ""}`}>
-        <div className="close-icon" onClick={toggleMenu}>
-          <FaTimes />
-        </div>
         <div className="modal-content">
-          {/* Home link with scroll to top and closing modal */}
-          <Link to="/" onClick={navigateHome}>Home</Link>
-          <Link onClick={() => { scrollToSection("about"); setIsMenuOpen(false); }}>About</Link>
-        <Link onClick={() => { scrollToSection("features"); setIsMenuOpen(false);}}>Features</Link>
-        <Link onClick={() => { scrollToSection("service"); setIsMenuOpen(false);}}>Services</Link>
-        <Link onClick={() => { scrollToSection("OtherServices"); setIsMenuOpen(false);}}>Programmes</Link>   
-        <Link onClick={() => { scrollToSection("Products"); setIsMenuOpen(false);}}>Products</Link> 
-        <Link onClick={() => { scrollToSection("contact"); setIsMenuOpen(false);}}>Contact Us</Link>
-           </div>
+          {navLinks.map((link) => (
+            <button
+              key={link.id}
+              className="modal-nav-button"
+              onClick={() => scrollToSection(link.id)}
+            >
+              {link.name}
+            </button>
+          ))}
+        </div>
       </div>
     </header>
   );
 }
 
 export default Header;
-
-
-
-
-
-
