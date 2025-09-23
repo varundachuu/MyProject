@@ -1,9 +1,8 @@
-import React, { useRef, useState } from "react";
-import "./css-files/other-services.css"; // ✅ clean filename
+import React, { useRef } from "react";
+import "./css-files/other-services.css";
 
 const Services = () => {
   const otherServicesRef = useRef(null);
-  const [showMore, setShowMore] = useState(false);
 
   const services = [
     {
@@ -25,42 +24,24 @@ const Services = () => {
     },
   ];
 
-  const handleKnowMoreClick = () => {
-    setShowMore(true);
-    // ✅ scroll to section when clicked
-    otherServicesRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <section
       ref={otherServicesRef}
-      id="OtherServices"
+      id="other-services"
       className="services-section"
     >
       <h2 className="services-heading">Our Other Programmes</h2>
       <p className="services-subheading">Our other range of programmes.</p>
 
-      <h3 className="services-know-more-heading">
-        Want to Know More? About our courses
-      </h3>
-
-      {!showMore && (
-        <button className="know-more-button" onClick={handleKnowMoreClick}>
-          Find here
-        </button>
-      )}
-
-      {showMore && (
-        <div className="services-grid">
-          {services.map((service, index) => (
-            <div key={service.title + index} className="service-card">
-              <div className="service-icon">{service.icon}</div>
-              <h3 className="service-title">{service.title}</h3>
-              <p className="service-description">{service.description}</p>
-            </div>
-          ))}
-        </div>
-      )}
+      <div className="services-grid">
+        {services.map((service, index) => (
+          <div key={service.title + index} className="service-card">
+            <div className="service-icon">{service.icon}</div>
+            <h3 className="service-title">{service.title}</h3>
+            <p className="service-description">{service.description}</p>
+          </div>
+        ))}
+      </div>
     </section>
   );
 };
