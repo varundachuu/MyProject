@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import "../css-files/other services.css";
+import "../css-files/other-services.css"; // ✅ removed space in filename
 
 const Services = () => {
   const otherServicesRef = useRef(null);
@@ -8,17 +8,16 @@ const Services = () => {
 
   const services = [
     {
-      title: "Foundational Courses",
-      description:
-        "For beginners looking to build a strong base in technical and analytical thinking..",
-      icon: "🧱",
-      showReadMore: true,
+      title: "E-Shikshana",
+      description: "A transformative learning programme.",
+      icon: "📕",
+      showReadMore: false,
     },
     {
-      title: "Custom SaaS Development",
+      title: "Foundational Courses",
       description:
-        "Transform your business with our SaaS expertise—streamlined, scalable, and user-focused solutions.",
-      icon: "🔧",
+        "For beginners looking to build a strong base in technical and analytical thinking.",
+      icon: "🧱",
       showReadMore: true,
     },
     {
@@ -32,6 +31,8 @@ const Services = () => {
 
   const handleKnowMoreClick = () => {
     setShowMore(true);
+    // ✅ Example: useRef in action (scroll to section)
+    otherServicesRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   const openModal = (service) => {
@@ -51,16 +52,6 @@ const Services = () => {
       <h2 className="services-heading">Our Other Programmes</h2>
       <p className="services-subheading">Our other range of programmes.</p>
 
-      <div className="services-grid">
-        <div className="service-card">
-          <div className="service-icon">📕</div>
-          <h3 className="service-title">E-Shikshana</h3>
-          <p className="service-description">
-            A transformative learning programme.
-          </p>
-        </div>
-      </div>
-
       <h3 className="services-know-more-heading">
         Want to Know More? About our courses
       </h3>
@@ -74,37 +65,41 @@ const Services = () => {
       {showMore && (
         <div className="services-grid">
           {services.map((service, index) => (
-            <div key={index} className="service-card">
+            <div key={service.title + index} className="service-card">
               <div className="service-icon">{service.icon}</div>
               <h3 className="service-title">{service.title}</h3>
               <p className="service-description">{service.description}</p>
               {service.showReadMore && (
-                <a
+                <button
                   className="read-more-link"
-                  onClick={() => openModal(service)}>
+                  onClick={() => openModal(service)}
+                >
                   Read More
-                </a>
+                </button>
               )}
             </div>
           ))}
         </div>
       )}
 
-     {modalContent && (
-  <div className="modal-overlay">
-    <div className="modal-content">
-      <h2>{modalContent.title}</h2>
-      <h3>Test H#</h3>
-      <p>
-        By proactively preparing for AI’s integration into the workplace, we can
-        maximize its benefits while minimizing its risks.
-      </p>
-      <button className="close-modal" onClick={closeModal}>
-        Close
-      </button>
-    </div>
-  </div>
-)};
-
+      {modalContent && (
+        <div
+          className="modal-overlay"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="modal-title"
+        >
+          <div className="modal-content">
+            <h2 id="modal-title">{modalContent.title}</h2>
+            <p>{modalContent.description}</p>
+            <button className="close-modal" onClick={closeModal}>
+              Close
+            </button>
+          </div>
+        </div>
+      )}
+    </section>
+  );
+};
 
 export default Services;
