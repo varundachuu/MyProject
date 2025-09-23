@@ -1,5 +1,5 @@
 import React from "react";
-import "../css-files/other-services.css"; // keep CSS path correct
+import "../css-files/Products.css"; // keep CSS path correct
 
 const Products = () => {
   return (
