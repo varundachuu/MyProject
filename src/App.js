@@ -10,7 +10,8 @@ import Founders from "./components/js_components/Founders.js";
 import AboutUs from "./components/js_components/About.js";
 import ContactUs from "./components/js_components/ContactUs.js";
 import Services from "./components/js_components/Services.js";
-import OtherServices from "./components/js_components/OtherServices.js";
+import OtherServices from "./components/js_components/OtherServices.js"; // Programmes
+import Products from "./components/js_components/Products.js";           // Product section
 import WhyChooseUs from "./components/js_components/WhyChooseUs.js";
 import ScrollToTop from "./components/js_components/ScrollToTop.js";
 
@@ -21,7 +22,7 @@ function App() {
   const aboutRef = useRef(null);
   const [showScrollToTop, setShowScrollToTop] = useState(false);
 
-  // Handle scroll events (parallax + scroll-to-top)
+  // Parallax effect & scroll-to-top button visibility
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
@@ -29,7 +30,6 @@ function App() {
       if (heroElement) {
         heroElement.style.backgroundPosition = `center ${scrollY * 0.5}px`;
       }
-
       setShowScrollToTop(scrollY > 100);
     };
 
@@ -38,9 +38,7 @@ function App() {
   }, []);
 
   const scrollToAbout = () => {
-    if (aboutRef.current) {
-      aboutRef.current.scrollIntoView({ behavior: "smooth" });
-    }
+    aboutRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   const scrollToTop = () => {
@@ -89,12 +87,11 @@ function App() {
 
                   {/* Other Sections */}
                   <WhyChooseUs />
-                  <div ref={aboutRef}>
-                    <AboutUs />
-                  </div>
+                  <div ref={aboutRef}><AboutUs /></div>
                   <Features />
                   <Services />
-                  {/* <OtherServices /> */}
+                  <Products />        {/* Products Section */}
+                  <OtherServices />   {/* Programmes Section */}
                   <Founders />
                   <ContactUs />
                 </>
@@ -105,8 +102,8 @@ function App() {
           </Routes>
         </main>
 
-        {/* ScrollToTop Component */}
-        {showScrollToTop && <ScrollToTop />}
+        {/* ScrollToTop Button */}
+        {showScrollToTop && <ScrollToTop onClick={scrollToTop} />}
 
         <Footer />
       </div>
