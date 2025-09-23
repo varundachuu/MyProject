@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import "../css-files/other-services.css"; // ✅ clean filename
+import "./css-files/other-services.css"; // ✅ clean filename
 
 const Services = () => {
   const otherServicesRef = useRef(null);
