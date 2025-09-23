@@ -12,7 +12,7 @@ function Header() {
     { name: "About", id: "about" },
     { name: "Features", id: "features" },
     { name: "Services", id: "service" },
-    { name: "Programmes", id: "OtherServices" },
+    { name: "Programmes", id: "Other-Services" },
     { name: "Products", id: "Products" },
     { name: "Contact Us", id: "contact" },
   ];
@@ -84,3 +84,4 @@ function Header() {
 }
 
 export default Header;
+
