@@ -1,25 +1,23 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import "../css-files/Header.css";
 import { FaTimes, FaBars } from "react-icons/fa";
-import logo from "../../images/logo6.jpg"; // ✅ import for React/Webpack
+import logo from "../../images/logo6.jpg";
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  // All section IDs should match exactly (lowercase, no spaces)
   const navLinks = [
     { name: "Home", id: "home" },
     { name: "About", id: "about" },
     { name: "Features", id: "features" },
     { name: "Services", id: "service" },
-    { name: "Programmes", id: "Other-Services" },
-    { name: "Products", id: "Products" },
+    { name: "Programmes", id: "other-services" }, // lowercase & dash
+    { name: "Products", id: "products" },          // lowercase
     { name: "Contact Us", id: "contact" },
   ];
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const scrollToSection = (sectionId) => {
     if (sectionId === "home") {
@@ -28,7 +26,7 @@ function Header() {
       const section = document.getElementById(sectionId);
       section?.scrollIntoView({ behavior: "smooth" });
     }
-    setIsMenuOpen(false); // close mobile menu after clicking
+    setIsMenuOpen(false); // close mobile menu
   };
 
   // Close menu on Esc key
@@ -42,13 +40,13 @@ function Header() {
 
   return (
     <header className="header">
-      {/* Logo Section */}
+      {/* Logo */}
       <div className="logo">
         <img src={logo} alt="logo" />
       </div>
 
       {/* Desktop Navigation */}
-      <nav className={`nav-links ${isMenuOpen ? "active" : ""}`} role="navigation" aria-label="Main Menu">
+      <nav className={`nav-links ${isMenuOpen ? "active" : ""}`} aria-label="Main Menu">
         {navLinks.map((link) => (
           <button
             key={link.id}
@@ -61,7 +59,13 @@ function Header() {
       </nav>
 
       {/* Mobile Menu Icon */}
-      <div className="menu-icon" onClick={toggleMenu} aria-label="Menu" role="button" tabIndex={0}>
+      <div
+        className="menu-icon"
+        onClick={toggleMenu}
+        aria-label="Menu"
+        role="button"
+        tabIndex={0}
+      >
         {isMenuOpen ? <FaTimes /> : <FaBars />}
       </div>
 
@@ -84,4 +88,3 @@ function Header() {
 }
 
 export default Header;
-
