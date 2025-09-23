@@ -92,7 +92,7 @@ function App() {
                   </div>
                   <Features />
                   <Services />
-                  <OtherServices />
+                  // <OtherServices />
                   <Founders />
                   <ContactUs />
                 </>
