@@ -8,9 +8,9 @@ import Footer from "./components/js_components/Footer.js";
 import Features from "./components/js_components/Features.js";
 import Founders from "./components/js_components/Founders.js";
 import AboutUs from "./components/js_components/About.js";
-import ContactUs from "./components/js_components/ContactUs.js";
-import Services from "./components/js_components/Services.js";
-import OtherServices from "./components/js_components/OtherServices.js"; // Programmes
+import ContactUs from "./components/js_components/contactUs.js";
+import Services from "./components/js_components/services.js";
+import OtherServices from "./components/js_components/Other-Services.js"; // Programmes
 import Products from "./components/js_components/Products.js";           // Product section
 import WhyChooseUs from "./components/js_components/WhyChooseUs.js";
 import ScrollToTop from "./components/js_components/ScrollToTop.js";
