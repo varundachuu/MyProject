@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import "./css-files/other-services.css";
 
-const Services = () => {
+const OtherServices = () => {
   const otherServicesRef = useRef(null);
 
   const services = [
