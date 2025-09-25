@@ -13,7 +13,7 @@ function Header() {
     { name: "Features", id: "features" },
     { name: "Services", id: "service" },
     { name: "Programmes", id: "other-services" }, // lowercase & dash
-    { name: "Products", id: "products" },          // lowercase
+    // { name: "Products", id: "products" },          // lowercase
     { name: "Contact Us", id: "contact" },
   ];
 
@@ -88,3 +88,4 @@ function Header() {
 }
 
 export default Header;
+
